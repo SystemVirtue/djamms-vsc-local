@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+db_data/
+node_modules/
+dist/
+build/
+*.sqlite3
+base44.Handmade_Repo/
