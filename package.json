@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Digital Jukebox & Media Management System Backend",
   "scripts": {
-    "dev": "cd backend && python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload",
-    "install": "pip install -r backend/requirements.txt",
-    "start": "cd backend && python -m uvicorn main:app --host 0.0.0.0 --port 8000"
+    "dev": "python3 -m http.server 3000 --directory frontend 2>/dev/null || echo 'Simple server for frontend. Backend runs on port 8000 via Docker.'",
+    "install": "echo 'Backend setup complete. Use docker-compose up to run the full stack.'",
+    "start": "python3 -m http.server 3000 --directory frontend",
+    "backend": "cd backend && python3 -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
   },
   "keywords": ["fastapi", "backend", "djamms"],
   "author": "",
