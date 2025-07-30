@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from backend.infrastructure.database import SessionLocal
-from backend.infrastructure.models import User
+from backend.infrastructure.models import User as UserModel
+from backend.schemas import User, UserCreate
 from pydantic import BaseModel
 from passlib.context import CryptContext
 from jose import jwt
@@ -39,12 +40,12 @@ def create_jwt(user_id: str, role: str):
 
 @router.post("/register", response_model=User)
 async def register(
-    user_data: CreateUserRequest,
+    user_data: UserCreate,
     db: AsyncSession = Depends(SessionLocal)
 ):
     try:
         hashed_password = create_hashed_password(user_data.password)
-        new_user = User(
+        new_user = UserModel(
             username=user_data.username,
             email=user_data.email,
             password_hash=hashed_password,

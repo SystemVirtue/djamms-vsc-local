@@ -1,11 +1,18 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+import os
 
 from backend.auth import router as auth_router
 from backend.api import router as api_router
 from backend.media_api import router as media_router
 
 app = FastAPI()
+
+# Mount static files for audio uploads
+uploads_dir = os.path.join(os.path.dirname(__file__), "..", "uploads")
+if os.path.exists(uploads_dir):
+    app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
 
 origins = [
     "http://localhost:3000",  # Frontend (React/Vite/etc.)

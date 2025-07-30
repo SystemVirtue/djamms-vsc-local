@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "DJAMMS Backend",
+            "type": "python",
+            "request": "launch",
+            "program": "backend/main.py",
+            "env": {
+                "FLASK_APP": "backend.main",
+                "FLASK_ENV": "development",
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "jinja": true,
+            "justMyCode": true
+        }
+    ]
+}

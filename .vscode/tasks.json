@@ -4,9 +4,22 @@
     {
       "label": "Run FastAPI Backend",
       "type": "shell",
-      "command": "uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000",
+      "command": "cd /Users/mikeclarkin/DJAMMS_VSC_Workspace && source venv/bin/activate && PYTHONPATH=/Users/mikeclarkin/DJAMMS_VSC_Workspace uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000",
       "group": "build",
-      "problemMatcher": []
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*Error.*$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^INFO:\\s+Started\\s+server\\s+process",
+          "endsPattern": "^INFO:\\s+Application\\s+startup\\s+complete"
+        }
+      }
     }
   ]
 }
