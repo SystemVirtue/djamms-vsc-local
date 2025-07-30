@@ -8,3 +8,5 @@ build/
 *.sqlite3
 base44.Handmade_Repo/
 uploads/
+.DS_Store
+COMBINED_REPO_FOR_ANALYSIS/
