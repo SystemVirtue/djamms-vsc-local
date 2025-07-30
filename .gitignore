@@ -7,3 +7,4 @@ dist/
 build/
 *.sqlite3
 base44.Handmade_Repo/
+uploads/

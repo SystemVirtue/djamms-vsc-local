@@ -14,10 +14,25 @@ services:
     build:
       context: ./backend
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
     networks:
       - jukebox-network
-    volumes:
-      - ./backend:/app
+    depends_on:
+      - redis
+      - postgres
+
+  frontend:
+    build:
+      context: ./base44.Handmade_Repo
+    ports:
+      - "3000:3000"
+    networks:
+      - jukebox-network
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8000
 
   postgres:
     image: postgres:latest

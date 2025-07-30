@@ -8,14 +8,6 @@ engine = create_async_engine(DATABASE_URL, echo=True, future=True)
 SessionLocal = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 Base = declarative_base()
 
-# Database dependency
-async def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        await db.close()
-
 # --- Redis Integration ---
 import redis.asyncio as aioredis
 
