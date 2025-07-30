@@ -1,0 +1,86 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.media-list {
+  margin-bottom: 30px;
+}
+
+.track-item {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s;
+}
+
+.track-item.playing {
+  background: #e0e0e0;
+}
+
+.track-info {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.track-info h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.track-info p {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.track-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.track-controls button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.track-controls button:hover {
+  background: #0056b3;
+}
+
+.player-controls {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.current-track {
+  margin-bottom: 15px;
+}
+
+.playback-status {
+  font-weight: bold;
+  color: #333;
+}
+
+.error {
+  color: #dc3545;
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 3px;
+}

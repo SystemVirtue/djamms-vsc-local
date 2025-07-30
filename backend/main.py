@@ -3,11 +3,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.auth import router as auth_router
 from backend.api import router as api_router
+from backend.media_api import router as media_router
 
 app = FastAPI()
 
 origins = [
     "http://localhost:3000",  # Frontend (React/Vite/etc.)
+    "http://localhost:5173",  # Vite dev server
     "http://localhost:8000",  # Backend (API docs, etc.)
     # Add your production domains here
 ]
@@ -26,3 +28,4 @@ def health_check():
 
 app.include_router(auth_router, prefix="/auth")
 app.include_router(api_router)
+app.include_router(media_router)

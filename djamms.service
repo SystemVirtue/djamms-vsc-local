@@ -1,0 +1,15 @@
+[Unit]
+Description=DJAMMS Media Player Service
+After=network.target postgresql.service redis.service
+
+[Service]
+Type=simple
+User=djamms
+WorkingDirectory=/opt/djamms
+Environment=FLASK_APP=backend.main
+Environment=FLASK_ENV=production
+ExecStart=/opt/djamms/venv/bin/flask run --host=0.0.0.0 --port=5000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
