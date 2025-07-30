@@ -10,6 +10,15 @@ services:
     volumes:
       - redis_data:/data
 
+  backend:
+    build:
+      context: ./backend
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - jukebox-network
+    volumes:
+      - ./backend:/app
+
   postgres:
     image: postgres:latest
     ports:
